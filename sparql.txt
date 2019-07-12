@@ -1,0 +1,29 @@
+PREFIX qb: <http://purl.org/linked-data/cube#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?Geography ?DateCode ?Measurement ?Value ?Smoker ?Tenure ?Household ?Age ?Gender ?Condition ?LAname
+
+WHERE {
+?s qb:dataSet <http://statistics.gov.scot/data/smoking-sscq>;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refArea> ?GeographyURI;
+ <http://purl.org/linked-data/sdmx/2009/dimension#refPeriod> ?DateCodeURI;
+ <http://purl.org/linked-data/cube#measureType> ?MeasurementURI;
+ <http://statistics.gov.scot/def/dimension/currentlySmokesCigarettes> ?SmokerURI ;
+ <http://statistics.gov.scot/def/dimension/gender> ?GenderURI ;
+ <http://statistics.gov.scot/def/dimension/limitingLong-termPhysicalOrMentalHealthCondition> ?ConditionURI ;
+ <http://statistics.gov.scot/def/dimension/householdType> ?HousholdURI ;
+ <http://statistics.gov.scot/def/dimension/typeOfTenure> ?TenureURI ;
+ <http://statistics.gov.scot/def/dimension/age> ?AgeURI .
+
+ ?GeographyURI rdfs:label ?Geography .
+ ?DateCodeURI rdfs:label ?DateCode .
+ ?MeasurementURI rdfs:label ?Measurement .
+ ?SmokerURI rdfs:label ?Smoker .
+ ?GenderURI rdfs:label ?Gender .
+ ?ConditionURI rdfs:label ?Condition .
+ ?HouseholdURI rdfs:label ?Household .
+ ?AgeURI rdfs:label ?Age .
+ ?TenureURI rdfs:label ?Tenure
+}
+
+
